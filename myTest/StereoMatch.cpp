@@ -3,11 +3,15 @@
 #include <math.h>
 #include <time.h> 
 
-#include "cv.h"
-#include "highgui.h"
+#include<opencv2/core/core.hpp>
+#include<opencv2/highgui/highgui.hpp>
 
 // #define IMGHEIGHT 240
 // #define IMGWIDTH  320
+
+using namespace std;
+using namespace cv;
+
 
 int IMGHEIGHT;
 int IMGWIDTH;
@@ -492,8 +496,8 @@ void main()
 
 	 
 	printf("time: %.3f s\n", (double)(end-start)/CLOCKS_PER_SEC); 
-	cvNamedWindow( "Census", 1 );
-	cvShowImage( "Census", Result_Census );
+	namedWindow( "Census", 1 );
+	imshow( "Census", Result_Census );
 
 
 
@@ -514,8 +518,8 @@ void main()
 			cvSetReal2D( Result_Rank, j, i, Disparity[j*IMGWIDTH+i]);
 		}
 	}
-	cvNamedWindow( "Rank", 1 );
-	cvShowImage( "Rank", Result_Rank );
+	namedWindow( "Rank", 1 );
+	imshow( "Rank", Result_Rank );
 
 
 
@@ -535,8 +539,8 @@ void main()
 			cvSetReal2D( Result_SSD, j, i, Disparity[j*IMGWIDTH+i]);
 		}
 	}
-	cvNamedWindow( "SSD", 1 );
-	cvShowImage( "SSD", Result_SSD );
+	namedWindow( "SSD", 1 );
+	imshow( "SSD", Result_SSD );
 
 
 
@@ -556,16 +560,16 @@ void main()
 			cvSetReal2D( Result_SAD, j, i, Disparity[j*IMGWIDTH+i]);
 		}
 	}
-	cvNamedWindow( "SAD", 1 );
-	cvShowImage( "SAD", Result_SAD );
+	namedWindow( "SAD", 1 );
+	imshow( "SAD", Result_SAD );
 
 
 
-	cvWaitKey(0);
-	cvSaveImage("dispCensus.jpg",Result_Census);
-	cvSaveImage("dispSAD.jpg",Result_SAD);
-	cvSaveImage("dispSSD.jpg",Result_SSD);
-	cvSaveImage("dispRank.jpg",Result_Rank);
+	waitKey(0);
+	imwrite("dispCensus.jpg",Result_Census);
+	imwrite("dispSAD.jpg",Result_SAD);
+	imwrite("dispSSD.jpg",Result_SSD);
+	imwrite("dispRank.jpg",Result_Rank);
 	cvDestroyWindow("SAD");
 	cvDestroyWindow("SSD");
 	cvDestroyWindow("Rank");
