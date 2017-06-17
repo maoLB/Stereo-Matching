@@ -2,7 +2,7 @@
     > File Name: DP.cpp
     > Author: ll.pan
     > Mail: ll.pan931204@gmail.com 
-    > Created Time: 2017?06?17? ??? 12?31?00?
+    > Created Time: 2017年06月17日 星期六 13时39分16秒
  ************************************************************************/
 
 #include <cstdio>   
